@@ -1,1 +1,36 @@
+{% if action_commited %}
+    <p> Success! </p>
+{% elif action_failed %}
+    <p> Artist not found </p>
+{% endif %}
 
+<form action="/add_artist" method="POST" autocomplete="off">
+    <p>
+        Follow an artist/band:
+        <input type="text" name="query" />
+        <input type="submit" name="Submit" />
+    </p>
+</form>
+
+<form action="/delete_artist" method="POST" autocomplete="off">
+    <p>
+        Unfollow an artist/band:
+        <input type="text" name="query" />
+        <input type="submit" name="Submit" />
+    </p>
+</form>
+
+
+<form action="/get_albums" method="POST">
+    <p>
+        Show albums with release date starting:
+        <input type="date" name="starting_date" value="{{ today() }}">
+        <input type="checkbox" name="include_singles" checked> Include singles?
+        <input type="submit" name="Submit" />
+    </p>
+</form>
+
+
+<form action="/list_artists" method="GET">
+    <input type="submit" value="Show currently followed artists/bands">
+</form>

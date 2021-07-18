@@ -1,0 +1,21 @@
+{% for artist_name, albums_list in albums %}
+    <h1>{{ artist_name }}</h1>
+    {% for album in albums_list %}
+        <div>
+            <img src="{{ album.cover_art }}" width="15%" />
+            <p>
+                {{ album.album_name }},
+                {{ album.album_type }},
+                {{ album.release_date }},
+                <a href="{{ album.url }}" target="_blank">
+                    Spotify link
+                </a>,
+            </p>
+        </div>
+        <br>
+    {% endfor %}
+{% endfor %}
+
+<form method="GET" action="/">
+    <input type="submit" value="Go back">
+</form>
